@@ -146,6 +146,11 @@ prompt_pure_preprompt_render() {
 		preprompt_parts+=('%F{$prompt_pure_colors[git:arrow]}${prompt_pure_git_arrows}%f')
 	fi
 
+	# TILLER_NAMESPACE
+	if [[ ! -z "$TILLER_NAMESPACE" ]]; then
+		preprompt_parts+=('%F{255}${TILLER_NAMESPACE}%f')
+	fi
+
 	# Username and machine, if applicable.
 	[[ -n $prompt_pure_state[username] ]] && preprompt_parts+=($prompt_pure_state[username])
 	# Execution time.
